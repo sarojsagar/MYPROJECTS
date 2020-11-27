@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="admin/base::Layout(~{::section})">
+<head>
+<title>welcome</title>
+</head>
+<body>
+
+<section class="banner d-flex justify-content-center align-items-center">
+<div class="text-center">
+<h1>Appointment List</h1>
+</div>
+
+
+
+<div class="card text-center">]
+
+	<div class="card-body">
+	 	<div class="text center">Clients</div>
+	 	
+	 	<table class="table">
+  			<thead>
+   				 <tr>
+			      <th scope="col">Id</th>
+			      <th scope="col">Name</th>
+			      <th scope="col">Email</th>
+			      <th scope="col">Phone</th>
+			       <th scope="col">Active</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			    <tr th:each="s : ${allClients}">
+			      <th scope="row"  th:text="@{'SCMUSER'+${s.id}}">1</th>
+			      <td >
+			      	
+			      	  <a href="#" th:href="@{'/adminpage/detail/'+${s.id}}">
+			      	<span th:text="${s.name}"></span>
+			      </a>
+			      </td>
+			      <td>
+			      
+			      
+			      <span th:text="${s.email}"></span>
+			    
+			      </td>
+			      <td>
+			        <span th:text="${s.phone}"></span>
+			      </td>
+			      <td>
+			      
+			      	 <span th:text="${s.enabled}"></span>     	
+			      	
+			      
+			      </td>
+			    </tr>
+			    
+			  </tbody>
+</table>
+
+
+	
+	</div>
+
+</div>
+</section>
+
+
+</body>
+</html>

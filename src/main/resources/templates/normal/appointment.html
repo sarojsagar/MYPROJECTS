@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="base::Layout(~{::section})">
+<head>
+<title>welcome</title>
+</head>
+<body>
+
+<section class="banner d-flex justify-content-center align-items-center">
+
+<h1>Your appointment</h1>
+
+<div class="card text-center">]
+
+	<div class="card-body">
+	 	<div class="text center">Your Appointment</div>
+	 	
+	 	<table class="table">
+  			<thead>
+   				 <tr>
+			      <th scope="col">Id</th>
+			      <th scope="col">Name</th>
+			      <th scope="col">Doctor</th>
+			      <th scope="col">About</th>
+			       <th scope="col">Price</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			    <tr th:each="s : ${services}">
+			      <th scope="row"  th:text="@{'SCMUSER'+${s.sid}}">1</th>
+			      <td >
+			      	
+			      	  <a href="#" th:href="@{'/clientpage/cancel/'+${s.sid}}">
+			      	<span th:text="${s.name}"></span>
+			      </a>
+			      </td>
+			      <td>
+			      
+			      
+			      <span th:text="${s.doctorName}"></span>
+			    
+			      </td>
+			      <td>
+			        <span th:text="${s.about}"></span>
+			      </td>
+			      <td>
+			      
+			      				   <span th:text="${s.price}"></span>     	
+			      	
+			      
+			      </td>
+			    </tr>
+			    
+			  </tbody>
+</table>
+
+
+	
+	</div>
+
+</div>
+
+
+</section>
+
+
+</body>
+</html>
